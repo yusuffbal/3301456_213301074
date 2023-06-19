@@ -48,26 +48,27 @@ class _LiveMatchScreenState extends State<LiveMatchScreen> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ))
           : ListView.builder(
-  itemCount: _matches.length,
-  itemBuilder: (context, index) {
-    final match = _matches[index];
-    return Card(
-      elevation: 2,
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      child: ListTile(
-        title: Text(
-          '${match.homeTeam} vs ${match.awayTeam}',
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-        subtitle: Text(
-          'Score: ${match.score}',
-          style: const TextStyle(fontSize: 14),
-        ),
-      ),
-    );
-  },
-),
-
+              itemCount: _matches.length,
+              itemBuilder: (context, index) {
+                final match = _matches[index];
+                return Card(
+                  elevation: 2,
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  child: ListTile(
+                    title: Text(
+                      '${match.homeTeam} vs ${match.awayTeam}',
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text(
+                      'Score: ${match.score}',
+                      style: const TextStyle(fontSize: 14),
+                    ),
+                  ),
+                );
+              },
+            ),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../services/FlutterFireAuthService.dart';
-import 'SignUp.dart';
+import 'SignUpScreen.dart';
 
 class LoginPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
@@ -95,13 +95,13 @@ class LoginPage extends StatelessWidget {
                                 horizontal: 50.0, vertical: 20.0),
                             shape: const StadiumBorder(),
                           ),
-                         onPressed: ()  {
-                String email = _emailController.text.trim();
-                String password = _passwordController.text.trim();
-                context
-                    .read<FlutterFireAuthService>()
-                    .logIn(email, password, context);
-                   },
+                          onPressed: () {
+                            String email = _emailController.text.trim();
+                            String password = _passwordController.text.trim();
+                            context
+                                .read<FlutterFireAuthService>()
+                                .logIn(email, password, context);
+                          },
                           child: const Text(
                             "Giriş Yap",
                             style: TextStyle(color: Colors.white),
@@ -123,7 +123,7 @@ class LoginPage extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>SignUpScreen()));
+                                    builder: (context) => SignUpScreen()));
                           },
                           child: const Text(
                             "Kayıt Ol",

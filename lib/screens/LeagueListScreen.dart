@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/BuildLeagueCard.dart';
-import 'StandingView.dart';
+import '../views/StandingView.dart';
 
 class LigList extends StatefulWidget {
   const LigList({Key? key}) : super(key: key);
@@ -69,7 +69,8 @@ class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const StandingView(code: 'PD')),
+                  MaterialPageRoute(
+                      builder: (context) => const StandingView(code: 'PD')),
                 );
               },
               child: AnimatedBuilder(
@@ -89,7 +90,8 @@ class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const StandingView(code: 'PL')),
+                  MaterialPageRoute(
+                      builder: (context) => const StandingView(code: 'PL')),
                 );
               },
               child: AnimatedBuilder(
@@ -109,7 +111,8 @@ class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const StandingView(code: 'SA')),
+                  MaterialPageRoute(
+                      builder: (context) => const StandingView(code: 'SA')),
                 );
               },
               child: AnimatedBuilder(
@@ -124,12 +127,13 @@ class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
               ),
             ),
             GestureDetector(
-             onLongPressDown: (_) => _startAnimation(),
+              onLongPressDown: (_) => _startAnimation(),
               onLongPressCancel: () => _reverseAnimation(),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const StandingView(code: 'FL1')),
+                  MaterialPageRoute(
+                      builder: (context) => const StandingView(code: 'FL1')),
                 );
               },
               child: AnimatedBuilder(
@@ -149,7 +153,8 @@ class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const StandingView(code: 'BL1')),
+                  MaterialPageRoute(
+                      builder: (context) => const StandingView(code: 'BL1')),
                 );
               },
               child: AnimatedBuilder(
@@ -169,7 +174,8 @@ class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const StandingView(code: 'DED')),
+                  MaterialPageRoute(
+                      builder: (context) => const StandingView(code: 'DED')),
                 );
               },
               child: AnimatedBuilder(

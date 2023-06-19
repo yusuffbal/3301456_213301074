@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:footballapp_2/view/HomeScreen.dart';
-import 'package:footballapp_2/view/LoginScreen.dart';
+import 'package:footballapp_2/screens/HomeScreen.dart';
+import 'package:footballapp_2/screens/LoginScreen.dart';
 
 class FlutterFireAuthService {
   final FirebaseAuth _firebaseAuth;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:footballapp_2/view/Biletlerim.dart';
+import 'package:footballapp_2/views/BiletlerimView.dart';
 import 'package:provider/provider.dart';
 
 import '../Provider/BiletProvider.dart';
@@ -16,7 +16,6 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
   List<MatchModel> matches = [];
   String? selectedStad;
   String? selectedTarih;
-
 
   @override
   void initState() {
@@ -85,10 +84,9 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                 onChanged: (value) {
                   biletProvider.changeAd(value);
                 },
-                 decoration: const InputDecoration(
-                  labelText: 'Adınız',
-                  labelStyle: TextStyle(color: Colors.white)
-                ),
+                decoration: const InputDecoration(
+                    labelText: 'Adınız',
+                    labelStyle: TextStyle(color: Colors.white)),
               ),
               const SizedBox(height: 30.0),
               TextFormField(
@@ -96,10 +94,9 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                 onChanged: (value) {
                   biletProvider.changeSoyad(value);
                 },
-                 decoration: const InputDecoration(
-                  labelText: 'Soyadınız',
-                  labelStyle: TextStyle(color: Colors.white)
-                ),
+                decoration: const InputDecoration(
+                    labelText: 'Soyadınız',
+                    labelStyle: TextStyle(color: Colors.white)),
               ),
               const SizedBox(height: 30.0),
               TextFormField(
@@ -107,10 +104,9 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                 onChanged: (value) {
                   biletProvider.changeEmail(value);
                 },
-                 decoration: const InputDecoration(
-                  labelText: 'E-posta Adresiniz',
-                  labelStyle: TextStyle(color: Colors.white)
-                ),
+                decoration: const InputDecoration(
+                    labelText: 'E-posta Adresiniz',
+                    labelStyle: TextStyle(color: Colors.white)),
               ),
               const SizedBox(height: 30.0),
               ElevatedButton(

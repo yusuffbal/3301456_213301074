@@ -1,23 +1,20 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:footballapp_2/view/LeagueList.dart';
+import 'package:footballapp_2/screens/LeagueListScreen.dart';
 
 import '../services/FlutterFireAuthService.dart';
 import '../services/LiveMatchService.dart';
 import '../widgets/BuildCard.dart';
-import 'BiletAlView.dart';
+import '../views/BiletAlView.dart';
 
-import 'LiveMatchView.dart';
+import '../views/LiveMatchView.dart';
 
 class HomeScreen extends StatelessWidget {
-  final FlutterFireAuthService _authService = FlutterFireAuthService(FirebaseAuth.instance);
-
-
+  final FlutterFireAuthService _authService =
+      FlutterFireAuthService(FirebaseAuth.instance);
 
   @override
   Widget build(BuildContext context) {
-    
-
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
@@ -71,29 +68,25 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                   GestureDetector(
-                    child: buildcard(
-                      "Çıkış Yap",
-                      "assets/images/cikisyap.png",
-                    ),
-                    onTap: () {
-                      _authService.logOut(context);
-                    }
-                  ),
+                      child: buildcard(
+                        "Çıkış Yap",
+                        "assets/images/cikisyap.png",
+                      ),
+                      onTap: () {
+                        _authService.logOut(context);
+                      }),
                   GestureDetector(
                     child: buildcard(
                       "Bilet Al",
                       "assets/images/bilet.png",
                     ),
-                    onTap: ()
-                    {
-                     Navigator.push(
+                    onTap: () {
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => BiletAlmaSayfasi(
-                          ),
+                          builder: (context) => BiletAlmaSayfasi(),
                         ),
                       );
-            
                     },
                   ),
                 ],

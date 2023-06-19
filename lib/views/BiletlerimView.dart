@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:footballapp_2/view/BiletDetayView.dart';
+import 'package:footballapp_2/views/BiletDetayView.dart';
 import 'package:provider/provider.dart';
 
 import '../models/BiletModel.dart';

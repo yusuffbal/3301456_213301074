@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:footballapp_2/services/FlutterFireAuthService.dart';
-import 'package:footballapp_2/view/LoginScreen.dart';
+import 'package:footballapp_2/screens/LoginScreen.dart';
 import 'package:provider/provider.dart';
-
-
-
 
 class SignUpScreen extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
@@ -33,16 +30,16 @@ class SignUpScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                      "Hosgeldin! Kayıt Ol!",
-                      style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                     TextFormField(
+                    "Hosgeldin! Kayıt Ol!",
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  TextFormField(
                     style: const TextStyle(
                         color: Color.fromARGB(255, 255, 255, 255)),
                     decoration: const InputDecoration(
@@ -63,8 +60,8 @@ class SignUpScreen extends StatelessWidget {
                     controller: _nameController,
                   ),
                   const SizedBox(
-                      height: 30,
-                    ),
+                    height: 30,
+                  ),
                   TextFormField(
                     style: const TextStyle(
                         color: Color.fromARGB(255, 255, 255, 255)),
@@ -86,8 +83,8 @@ class SignUpScreen extends StatelessWidget {
                     controller: _emailController,
                   ),
                   const SizedBox(
-                      height: 30,
-                    ),
+                    height: 30,
+                  ),
                   TextFormField(
                     controller: _passwordController,
                     style: const TextStyle(
@@ -110,47 +107,47 @@ class SignUpScreen extends StatelessWidget {
                     obscureText: true,
                   ),
                   const SizedBox(
-                      height: 30,
-                    ),
-                    Center(
-                     child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color.fromARGB(255, 126, 0, 252),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 50.0, vertical: 20.0),
-                            shape: const StadiumBorder(),
-                          ),
-                    onPressed: () async {
-                      String email = _emailController.text.trim();
-                      String password = _passwordController.text.trim();
-                      String name = _nameController.text.trim();
-                      context 
-                       .read<FlutterFireAuthService>()
-                       .createAccount(name, email, password);
-                    },
-                    child: Text('Kayıt Ol'),
+                    height: 30,
                   ),
+                  Center(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 126, 0, 252),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 50.0, vertical: 20.0),
+                        shape: const StadiumBorder(),
+                      ),
+                      onPressed: () async {
+                        String email = _emailController.text.trim();
+                        String password = _passwordController.text.trim();
+                        String name = _nameController.text.trim();
+                        context
+                            .read<FlutterFireAuthService>()
+                            .createAccount(name, email, password);
+                      },
+                      child: Text('Kayıt Ol'),
                     ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Center(
-                   child:   ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color.fromARGB(255, 126, 0, 252),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 50.0, vertical: 20.0),
-                            shape: const StadiumBorder(),
-                          ),
-                    onPressed: ()  {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
-                    },
-                    child: Text('Giriş Yap'),
                   ),
-                    )
-                  
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Center(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 126, 0, 252),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 50.0, vertical: 20.0),
+                        shape: const StadiumBorder(),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginPage()));
+                      },
+                      child: Text('Giriş Yap'),
+                    ),
+                  )
                 ],
               ),
             ),

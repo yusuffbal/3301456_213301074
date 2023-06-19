@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import '../models/StandingModel.dart';
 import '../services/StandingService.dart';
 
@@ -40,9 +39,8 @@ class _StandingViewState extends State<StandingView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Puan Tablosu'),
-        backgroundColor: Color.fromARGB(255, 55, 19, 103)
-      ),
+          title: const Text('Puan Tablosu'),
+          backgroundColor: Color.fromARGB(255, 55, 19, 103)),
       body: _standings.isEmpty
           ? const Center(child: CircularProgressIndicator())
           : SingleChildScrollView(

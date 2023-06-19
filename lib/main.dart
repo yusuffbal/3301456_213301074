@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:footballapp_2/Provider/BiletProvider.dart';
 import 'package:footballapp_2/services/BiletService.dart';
 import 'package:footballapp_2/services/FlutterFireAuthService.dart';
-import 'package:footballapp_2/view/LoginScreen.dart';
+import 'package:footballapp_2/screens/LoginScreen.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 

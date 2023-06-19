@@ -18,8 +18,7 @@ class _BiletDetayViewState extends State<BiletDetayView> {
   final _emailController = TextEditingController();
 
   @override
-  void dispose()
-  {
+  void dispose() {
     _adController.dispose();
     _soyadController.dispose();
     _emailController.dispose();
@@ -29,25 +28,24 @@ class _BiletDetayViewState extends State<BiletDetayView> {
   @override
   void initState() {
     // ignore: unnecessary_null_comparison
-    if(widget.bilet==null)
-    {
-      _adController.text='';
-      _soyadController.text='';
-      _emailController.text='';
+    if (widget.bilet == null) {
+      _adController.text = '';
+      _soyadController.text = '';
+      _emailController.text = '';
 
-      Future.delayed(Duration.zero, (){
-        final Biletprovider = Provider.of<BiletProvider>(context, listen: false);
+      Future.delayed(Duration.zero, () {
+        final Biletprovider =
+            Provider.of<BiletProvider>(context, listen: false);
         Biletprovider.LoadValues(BiletModel());
       });
-    }
-    else
-    {
-      _adController.text=widget.bilet.ad!;
-      _soyadController.text=widget.bilet.soyad!;
-      _emailController.text=widget.bilet.email!;
+    } else {
+      _adController.text = widget.bilet.ad!;
+      _soyadController.text = widget.bilet.soyad!;
+      _emailController.text = widget.bilet.email!;
 
-      Future.delayed(Duration.zero, (){
-        final Biletprovider = Provider.of<BiletProvider>(context, listen: false);
+      Future.delayed(Duration.zero, () {
+        final Biletprovider =
+            Provider.of<BiletProvider>(context, listen: false);
         Biletprovider.LoadValues(widget.bilet);
       });
     }
@@ -70,43 +68,40 @@ class _BiletDetayViewState extends State<BiletDetayView> {
           children: [
             Text(
               'Maç: ${widget.bilet.match} - Stad: ${widget.bilet.stad} - Tarih: ${widget.bilet.tarih}',
-              style: const TextStyle(fontSize: 18,color: Colors.white),
+              style: const TextStyle(fontSize: 18, color: Colors.white),
             ),
-          const  SizedBox(height: 30),
+            const SizedBox(height: 30),
             TextFormField(
               style: const TextStyle(color: Colors.white),
               controller: _adController,
               onChanged: (value) {
                 Biletprovider.changeAd(value);
               },
-               decoration: const InputDecoration(
+              decoration: const InputDecoration(
                   labelText: 'Yeni Adiniz',
-                  labelStyle: TextStyle(color: Colors.white)
-                ),
+                  labelStyle: TextStyle(color: Colors.white)),
             ),
-          const  SizedBox(height: 30),
+            const SizedBox(height: 30),
             TextFormField(
               style: const TextStyle(color: Colors.white),
               controller: _soyadController,
               onChanged: (value) {
-               Biletprovider.changeSoyad(value);
+                Biletprovider.changeSoyad(value);
               },
-               decoration: const InputDecoration(
+              decoration: const InputDecoration(
                   labelText: 'Yeni Soyadiniz',
-                  labelStyle: TextStyle(color: Colors.white)
-                ),
+                  labelStyle: TextStyle(color: Colors.white)),
             ),
-           const SizedBox(height: 30),
+            const SizedBox(height: 30),
             TextFormField(
               style: const TextStyle(color: Colors.white),
               controller: _emailController,
               onChanged: (value) {
-               Biletprovider.changeEmail(value);
+                Biletprovider.changeEmail(value);
               },
-               decoration: const InputDecoration(
+              decoration: const InputDecoration(
                   labelText: 'Yeni E-posta Adresiniz',
-                  labelStyle: TextStyle(color: Colors.white)
-                ),
+                  labelStyle: TextStyle(color: Colors.white)),
             ),
             const SizedBox(height: 20),
             Row(
@@ -114,21 +109,22 @@ class _BiletDetayViewState extends State<BiletDetayView> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 126, 0, 252),
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 50.0, vertical: 20.0),
-                  shape: const StadiumBorder(),
-                ),
+                    backgroundColor: const Color.fromARGB(255, 126, 0, 252),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 50.0, vertical: 20.0),
+                    shape: const StadiumBorder(),
+                  ),
                   onPressed: () {
                     showDialog(
                       context: context,
                       builder: (context) {
                         return AlertDialog(
-                          title:const Text('Bilet Sil'),
-                          content:const Text('Bu biletinizi silmek istediğinizden emin misiniz?'),
+                          title: const Text('Bilet Sil'),
+                          content: const Text(
+                              'Bu biletinizi silmek istediğinizden emin misiniz?'),
                           actions: [
                             TextButton(
-                              child:const Text('İptal'),
+                              child: const Text('İptal'),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
@@ -136,8 +132,8 @@ class _BiletDetayViewState extends State<BiletDetayView> {
                             TextButton(
                               child: const Text('Sil'),
                               onPressed: () {
-                                               Biletprovider.removeBilet(widget.bilet.id!);
-                Navigator.of(context).pop();
+                                Biletprovider.removeBilet(widget.bilet.id!);
+                                Navigator.of(context).pop();
                               },
                             ),
                           ],
@@ -149,11 +145,11 @@ class _BiletDetayViewState extends State<BiletDetayView> {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 126, 0, 252),
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 50.0, vertical: 20.0),
-                  shape: const StadiumBorder(),
-                ),
+                    backgroundColor: const Color.fromARGB(255, 126, 0, 252),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 50.0, vertical: 20.0),
+                    shape: const StadiumBorder(),
+                  ),
                   onPressed: () {
                     Biletprovider.saveBiletmodel();
                     Navigator.of(context).pop();
