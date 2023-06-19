@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "875446474727",
+    "project_id": "son-mobil-proje-yusuf",
+    "storage_bucket": "son-mobil-proje-yusuf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875446474727:android:63e5655043e062f4008f42",
+        "android_client_info": {
+          "package_name": "com.example.footballapp_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "875446474727-aitc1kj0liffomap307530aacft7a717.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKreo5e8kc8vefef1wrncIQ1Wgs9ssMPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "875446474727-aitc1kj0liffomap307530aacft7a717.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "875446474727-kaco74i546q46pbos73sieamth1hki1d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.footballapp2"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
