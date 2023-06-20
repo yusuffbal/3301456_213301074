@@ -63,7 +63,8 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                         .firstWhere((match) => match.ad == newValue)
                         .tarih;
                     selectedMatch =
-                        matches.firstWhere((match) => match.ad == newValue).ad;
+                        matches.firstWhere((match) => match.ad == newValue)
+                        .ad;
                   });
 
                   biletProvider.changeMatch(selectedMatch!);
