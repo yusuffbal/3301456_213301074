@@ -136,7 +136,7 @@ class SignUpScreen extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color.fromARGB(255, 126, 0, 252),
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 50.0, vertical: 10.0),
+                            horizontal: 50.0, vertical: 20.0),
                         shape: const StadiumBorder(),
                       ),
                       onPressed: () {
