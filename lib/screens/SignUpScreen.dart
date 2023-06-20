@@ -25,7 +25,7 @@ class SignUpScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -37,7 +37,7 @@ class SignUpScreen extends StatelessWidget {
                         color: Colors.white),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 1,
                   ),
                   TextFormField(
                     style: const TextStyle(
@@ -60,7 +60,7 @@ class SignUpScreen extends StatelessWidget {
                     controller: _nameController,
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 5,
                   ),
                   TextFormField(
                     style: const TextStyle(
@@ -83,7 +83,7 @@ class SignUpScreen extends StatelessWidget {
                     controller: _emailController,
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 5,
                   ),
                   TextFormField(
                     controller: _passwordController,
@@ -107,7 +107,7 @@ class SignUpScreen extends StatelessWidget {
                     obscureText: true,
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 10,
                   ),
                   Center(
                     child: ElevatedButton(
@@ -129,14 +129,14 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 10,
                   ),
                   Center(
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color.fromARGB(255, 126, 0, 252),
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 50.0, vertical: 20.0),
+                            horizontal: 50.0, vertical: 10.0),
                         shape: const StadiumBorder(),
                       ),
                       onPressed: () {

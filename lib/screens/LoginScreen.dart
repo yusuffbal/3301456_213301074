@@ -6,6 +6,7 @@ import 'SignUpScreen.dart';
 class LoginPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -25,7 +26,8 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: 
+                const EdgeInsets.all(15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -37,7 +39,7 @@ class LoginPage extends StatelessWidget {
                           color: Colors.white),
                     ),
                     const SizedBox(
-                      height: 30,
+                      height: 5,
                     ),
                     TextFormField(
                       controller: _emailController,
@@ -60,7 +62,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 30,
+                      height: 5,
                     ),
                     TextFormField(
                       controller: _passwordController,
@@ -86,8 +88,9 @@ class LoginPage extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    Center(
-                      child: ElevatedButton(
+                    Container(
+                      child: Center(
+                        child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor:
                                 const Color.fromARGB(255, 126, 0, 252),
@@ -105,13 +108,16 @@ class LoginPage extends StatelessWidget {
                           child: const Text(
                             "Giriş Yap",
                             style: TextStyle(color: Colors.white),
-                          )),
+                          ),
+                        ),
+                      ),
                     ),
                     const SizedBox(
                       height: 30,
                     ),
-                    Center(
-                      child: ElevatedButton(
+                    Container(
+                      child: Center(
+                        child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor:
                                 const Color.fromARGB(255, 126, 0, 252),
@@ -121,18 +127,22 @@ class LoginPage extends StatelessWidget {
                           ),
                           onPressed: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SignUpScreen()));
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SignUpScreen(),
+                              ),
+                            );
                           },
                           child: const Text(
                             "Kayıt Ol",
                             style: TextStyle(color: Colors.white),
-                          )),
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
