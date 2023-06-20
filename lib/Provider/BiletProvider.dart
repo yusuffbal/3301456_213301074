@@ -16,7 +16,7 @@ class BiletProvider with ChangeNotifier
   String? _stad;
   String? _tarih;   
   int? _kapasite;
-  var uuid = Uuid();
+  var uuid = const Uuid();
 
   String? get id => _id;
   String? get ad => _ad;
