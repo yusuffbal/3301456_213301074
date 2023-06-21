@@ -39,6 +39,7 @@ class _FileReadViewState extends State<FileReadView> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Dosya Okuma'),
+        backgroundColor: const Color.fromARGB(255, 55, 19, 103),
       ),
       body: Center(
         child: Text(
