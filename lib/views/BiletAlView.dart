@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:footballapp_2/views/BiletlerimView.dart';
+import 'package:footballapp_2/views/BiletlerimDbView.dart';
 import 'package:provider/provider.dart';
-
 import '../Provider/BiletProvider.dart';
+import '../models/BiletModel.dart';
 import '../models/MatchModel.dart';
+import '../services/DbService.dart';
+import '../services/FileUtils.dart';
 import '../services/MatchService.dart';
+import 'BiletlerimView.dart';
+import 'FileReadView.dart';
 
 class BiletAlmaSayfasi extends StatefulWidget {
   @override
@@ -12,6 +16,9 @@ class BiletAlmaSayfasi extends StatefulWidget {
 }
 
 class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
+  final adController = TextEditingController();
+  final soyadController = TextEditingController();
+  final mailController = TextEditingController();
   String? selectedMatch;
   List<MatchModel> matches = [];
   String? selectedStad;
@@ -63,8 +70,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                         .firstWhere((match) => match.ad == newValue)
                         .tarih;
                     selectedMatch =
-                        matches.firstWhere((match) => match.ad == newValue)
-                        .ad;
+                        matches.firstWhere((match) => match.ad == newValue).ad;
                   });
 
                   biletProvider.changeMatch(selectedMatch!);
@@ -81,6 +87,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
               ),
               const SizedBox(height: 30.0),
               TextFormField(
+                controller: adController,
                 style: const TextStyle(color: Colors.white),
                 onChanged: (value) {
                   biletProvider.changeAd(value);
@@ -91,6 +98,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
               ),
               const SizedBox(height: 30.0),
               TextFormField(
+                controller: soyadController,
                 style: const TextStyle(color: Colors.white),
                 onChanged: (value) {
                   biletProvider.changeSoyad(value);
@@ -101,6 +109,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
               ),
               const SizedBox(height: 30.0),
               TextFormField(
+                controller: mailController,
                 style: const TextStyle(color: Colors.white),
                 onChanged: (value) {
                   biletProvider.changeEmail(value);
@@ -121,8 +130,28 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                   'Bilet Al',
                   style: TextStyle(color: Colors.white),
                 ),
-                onPressed: () {
+                onPressed: () async {
+                  FileUtils.saveToFile([
+                    adController.text,
+                    soyadController.text,
+                    mailController.text
+                  ]);
+
                   biletProvider.saveBiletmodel();
+
+                  BiletModel bilet = BiletModel(
+                    ad: adController.text,
+                    soyad: soyadController.text,
+                    email: mailController.text,
+                    match: selectedMatch,
+                    stad: selectedStad,
+                    tarih: selectedTarih,
+                  );
+
+                  DbService dbService = DbService.instance;
+                  await dbService.insert(bilet.toMap());
+
+                  // ignore: use_build_context_synchronously
                   showDialog(
                     context: context,
                     builder: (context) {
@@ -161,6 +190,52 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => BiletlerimSayfasi(),
+                    ),
+                  );
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 126, 0, 252),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 50.0, vertical: 20.0),
+                  shape: const StadiumBorder(),
+                ),
+                child: const Text(
+                  'Txt Dosyasına Git',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FileReadView(),
+                    ),
+                  );
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 126, 0, 252),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 50.0, vertical: 20.0),
+                  shape: const StadiumBorder(),
+                ),
+                child: const Text(
+                  'Local Veritabani Sayfasi',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BiletlerimDbSayfasi(),
                     ),
                   );
                 },

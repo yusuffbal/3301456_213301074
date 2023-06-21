@@ -62,7 +62,7 @@ class _LiveMatchScreenState extends State<LiveMatchScreen> {
                           fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     subtitle: Text(
-                      'Score: ${match.score}',
+                      'Skor: ${match.score}',
                       style: const TextStyle(fontSize: 14),
                     ),
                   ),
