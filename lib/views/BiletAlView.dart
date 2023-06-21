@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:footballapp_2/views/BiletlerimDbView.dart';
+import 'package:footballapp_2/views/BiletlerimView.dart';
+import 'package:footballapp_2/views/FileReadView.dart';
 import 'package:provider/provider.dart';
+
 import '../Provider/BiletProvider.dart';
-import '../models/BiletModel.dart';
 import '../models/MatchModel.dart';
-import '../services/DbService.dart';
 import '../services/FileUtils.dart';
 import '../services/MatchService.dart';
-import 'BiletlerimView.dart';
-import 'FileReadView.dart';
 
 class BiletAlmaSayfasi extends StatefulWidget {
   @override
@@ -130,28 +128,13 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                   'Bilet Al',
                   style: TextStyle(color: Colors.white),
                 ),
-                onPressed: () async {
+                onPressed: () {
                   FileUtils.saveToFile([
                     adController.text,
                     soyadController.text,
                     mailController.text
                   ]);
-
                   biletProvider.saveBiletmodel();
-
-                  BiletModel bilet = BiletModel(
-                    ad: adController.text,
-                    soyad: soyadController.text,
-                    email: mailController.text,
-                    match: selectedMatch,
-                    stad: selectedStad,
-                    tarih: selectedTarih,
-                  );
-
-                  DbService dbService = DbService.instance;
-                  await dbService.insert(bilet.toMap());
-
-                  // ignore: use_build_context_synchronously
                   showDialog(
                     context: context,
                     builder: (context) {
@@ -195,7 +178,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                 },
               ),
               const SizedBox(
-                height: 10,
+                height: 30,
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -205,7 +188,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                   shape: const StadiumBorder(),
                 ),
                 child: const Text(
-                  'Txt Dosyasına Git',
+                  'Txt Dosyasina Git',
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
@@ -213,29 +196,6 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const FileReadView(),
-                    ),
-                  );
-                },
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 126, 0, 252),
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 50.0, vertical: 20.0),
-                  shape: const StadiumBorder(),
-                ),
-                child: const Text(
-                  'Local Veritabani Sayfasi',
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BiletlerimDbSayfasi(),
                     ),
                   );
                 },

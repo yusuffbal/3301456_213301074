@@ -30,15 +30,7 @@ class BiletModel {
     };
   }
 
-  BiletModel.fromMap(Map<String, dynamic> map)
-      : id = map['id'],
-        ad = map['ad'],
-        soyad = map['soyad'],
-        email = map['email'],
-        match = map['match'],
-        stad = map['stad'],
-        tarih = map['tarih'];
-
+  
 
   BiletModel.fromFireStore(Map<String, dynamic> firestore)
   : id=firestore['id'],
