@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import '../models/StandingModel.dart';
-
+import 'DbHelper.dart';
 
 class StandingService {
   final String apiKey = 'e11c9a34176f499bbd3ef7ef05458480';
@@ -14,20 +14,23 @@ class StandingService {
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       final standingsData = data['standings'][0]['table'];
-      print(response.body);
 
       final standings = List<StandingModel>.from(standingsData.map((standing) {
         return StandingModel(
           position: standing['position'],
+          id: standing['team']['id'],
           teamName: standing['team']['name'],
           playedGames: standing['playedGames'],
           points: standing['points'],
           won: standing['won'],
           draw: standing['draw'],
           lost: standing['lost'],
-          goalDifference: standing['goalDifference']
+          goalDifference: standing['goalDifference'],
         );
       }));
+
+      final databaseHelper = DatabaseHelper.instance;
+      await databaseHelper.insertStandings(standings);
 
       return standings;
     } else {
