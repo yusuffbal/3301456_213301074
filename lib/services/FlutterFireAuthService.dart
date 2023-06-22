@@ -73,19 +73,4 @@ class FlutterFireAuthService {
     } catch (e) {}
   }
 
-  Future<String?> getLoggedInUserName() async {
-    User? currentUser = _firebaseAuth.currentUser;
-    if (currentUser != null) {
-      FirebaseFirestore _firestore = FirebaseFirestore.instance;
-      DocumentSnapshot snapshot = await _firestore
-          .collection('users')
-          .doc(currentUser.uid)
-          .get();
-      if (snapshot.exists) {
-        return (snapshot.data() as Map<String, dynamic>)['user_name'];
-
-      }
-    }
-    return null;
-  }
 }
