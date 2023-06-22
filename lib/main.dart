@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Firebase Auth',
         theme: ThemeData(
           primarySwatch: Colors.blue,
