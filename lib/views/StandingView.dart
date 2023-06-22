@@ -45,7 +45,7 @@ class _StandingViewState extends State<StandingView> {
 
       await databaseHelper.insertStandings(apiStandings);
     } catch (error) {
-      print('Error fetching standings: $error');
+      print('Sıralama verileri çekilemedi $error');
       setState(() {
         _isLoading = false;
       });
