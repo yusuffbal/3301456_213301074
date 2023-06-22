@@ -20,9 +20,7 @@ class LiveMatchService {
         return LiveMatchModel(
           homeTeam: match['homeTeam']['name'],
           awayTeam: match['awayTeam']['name'],
-          score: match['score']['fullTime']['homeTeam'].toString() +
-              ' - ' +
-              match['score']['fullTime']['awayTeam'].toString(),
+          score: '${match['score']['fullTime']['homeTeam']} - ${match['score']['fullTime']['awayTeam']}',
         );
       }));
 
