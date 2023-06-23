@@ -62,7 +62,7 @@ class _BiletDetayViewState extends State<BiletDetayView> {
         backgroundColor: const Color.fromARGB(255, 55, 19, 103),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -70,7 +70,6 @@ class _BiletDetayViewState extends State<BiletDetayView> {
               'Maç: ${widget.bilet.match} - Stad: ${widget.bilet.stad} - Tarih: ${widget.bilet.tarih}',
               style: const TextStyle(fontSize: 18, color: Colors.white),
             ),
-            const SizedBox(height: 30),
             TextFormField(
               style: const TextStyle(color: Colors.white),
               controller: _adController,
@@ -81,7 +80,7 @@ class _BiletDetayViewState extends State<BiletDetayView> {
                   labelText: 'Yeni Adiniz',
                   labelStyle: TextStyle(color: Colors.white)),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 5),
             TextFormField(
               style: const TextStyle(color: Colors.white),
               controller: _soyadController,
@@ -92,7 +91,7 @@ class _BiletDetayViewState extends State<BiletDetayView> {
                   labelText: 'Yeni Soyadiniz',
                   labelStyle: TextStyle(color: Colors.white)),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 5),
             TextFormField(
               style: const TextStyle(color: Colors.white),
               controller: _emailController,
@@ -103,60 +102,63 @@ class _BiletDetayViewState extends State<BiletDetayView> {
                   labelText: 'Yeni E-posta Adresiniz',
                   labelStyle: TextStyle(color: Colors.white)),
             ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 126, 0, 252),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50.0, vertical: 20.0),
-                    shape: const StadiumBorder(),
-                  ),
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          title: const Text('Bilet Sil'),
-                          content: const Text(
-                              'Bu biletinizi silmek istediğinizden emin misiniz?'),
-                          actions: [
-                            TextButton(
-                              child: const Text('İptal'),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                            ),
-                            TextButton(
-                              child: const Text('Sil'),
-                              onPressed: () {
-                                Biletprovider.removeBilet(widget.bilet.id!);
-                                Navigator.of(context).pop();
-                              },
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                  child: const Text('Bilet Sil'),
+            const SizedBox(height: 5),
+            Center(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 126, 0, 252),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 50.0, vertical: 20.0),
+                  shape: const StadiumBorder(),
                 ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 126, 0, 252),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50.0, vertical: 20.0),
-                    shape: const StadiumBorder(),
-                  ),
-                  onPressed: () {
-                    Biletprovider.saveBiletmodel();
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text('Bilet Güncelle'),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: const Text('Bilet Sil'),
+                        content: const Text(
+                            'Bu biletinizi silmek istediğinizden emin misiniz?'),
+                        actions: [
+                          TextButton(
+                            child: const Text('İptal'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                          const SizedBox(height: 5),
+                          TextButton(
+                            child: const Text('Sil'),
+                            onPressed: () {
+                              Biletprovider.removeBilet(widget.bilet.id!);
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: const Text('Bilet Sil'),
+              ),
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            Center(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 126, 0, 252),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 50.0, vertical: 20.0),
+                  shape: const StadiumBorder(),
                 ),
-              ],
+                onPressed: () {
+                  Biletprovider.saveBiletmodel();
+                  Navigator.of(context).pop();
+                },
+                child: const Text('Bilet Güncelle'),
+              ),
             ),
           ],
         ),
