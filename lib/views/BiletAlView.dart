@@ -180,26 +180,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
               const SizedBox(
                 height: 30,
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 126, 0, 252),
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 50.0, vertical: 20.0),
-                  shape: const StadiumBorder(),
-                ),
-                child: const Text(
-                  'Txt Dosyasina Git',
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const FileReadView(),
-                    ),
-                  );
-                },
-              ),
+           
             ],
           ),
         ),
