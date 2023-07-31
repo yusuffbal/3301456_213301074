@@ -1,14 +1,17 @@
+// ignore_for_file: library_private_types_in_public_api, file_names
+
 import 'package:flutter/material.dart';
+import 'package:footballapp_2/constants/constant.dart';
 import 'package:footballapp_2/views/BiletlerimView.dart';
-import 'package:footballapp_2/views/FileReadView.dart';
 import 'package:provider/provider.dart';
 
 import '../Provider/BiletProvider.dart';
 import '../models/MatchModel.dart';
-import '../services/FileUtils.dart';
 import '../services/MatchService.dart';
 
 class BiletAlmaSayfasi extends StatefulWidget {
+  const BiletAlmaSayfasi({super.key});
+
   @override
   _BiletAlmaSayfasiState createState() => _BiletAlmaSayfasiState();
 }
@@ -41,10 +44,10 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
   Widget build(BuildContext context) {
     final biletProvider = Provider.of<BiletProvider>(context);
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 58, 1, 133),
+      backgroundColor: constant.mavi4,
       appBar: AppBar(
         title: const Text('Bilet Alma Sayfası'),
-        backgroundColor: const Color.fromARGB(255, 55, 19, 103),
+        backgroundColor: constant.mavi1,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -56,7 +59,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                   labelText: 'Maç Seçin',
                   labelStyle: TextStyle(color: Colors.white),
                 ),
-                dropdownColor: const Color.fromARGB(255, 55, 19, 103),
+                dropdownColor: constant.mavi4,
                 style: const TextStyle(color: Colors.white),
                 value: selectedMatch,
                 onChanged: (String? newValue) {
@@ -119,7 +122,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
               const SizedBox(height: 30.0),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 126, 0, 252),
+                  backgroundColor: constant.mavi1,
                   padding: const EdgeInsets.symmetric(
                       horizontal: 50.0, vertical: 20.0),
                   shape: const StadiumBorder(),
@@ -129,21 +132,17 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
-                  FileUtils.saveToFile([
-                    adController.text,
-                    soyadController.text,
-                    mailController.text
-                  ]);
+                  
                   biletProvider.saveBiletmodel();
                   showDialog(
                     context: context,
                     builder: (context) {
                       return AlertDialog(
-                        title: Text('Bilet Alındı'),
-                        content: Text('Bilet rezervasyonunuz alınmıştır.'),
+                        title: const Text('Bilet Alındı'),
+                        content: const Text('Bilet rezervasyonunuz alınmıştır.'),
                         actions: [
                           TextButton(
-                            child: Text('Tamam'),
+                            child: const Text('Tamam'),
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
@@ -159,7 +158,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 126, 0, 252),
+                  backgroundColor: constant.mavi1,
                   padding: const EdgeInsets.symmetric(
                       horizontal: 50.0, vertical: 20.0),
                   shape: const StadiumBorder(),
@@ -177,10 +176,6 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                   );
                 },
               ),
-              const SizedBox(
-                height: 30,
-              ),
-           
             ],
           ),
         ),

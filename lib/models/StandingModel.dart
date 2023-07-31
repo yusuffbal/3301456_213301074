@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 class StandingModel {
   final int? id;
   final int position;

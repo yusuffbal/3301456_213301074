@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:footballapp_2/services/FlutterFireAuthService.dart';
 import 'package:footballapp_2/screens/LoginScreen.dart';
@@ -7,6 +9,8 @@ class SignUpScreen extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
+
+  SignUpScreen({super.key});
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -125,7 +129,7 @@ class SignUpScreen extends StatelessWidget {
                             .read<FlutterFireAuthService>()
                             .createAccount(name, email, password);
                       },
-                      child: Text('Kayıt Ol'),
+                      child: const Text('Kayıt Ol'),
                     ),
                   ),
                   const SizedBox(
@@ -145,7 +149,7 @@ class SignUpScreen extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => LoginPage()));
                       },
-                      child: Text('Giriş Yap'),
+                      child: const Text('Giriş Yap'),
                     ),
                   )
                 ],

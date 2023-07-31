@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:footballapp_2/constants/constant.dart';
 
 import '../models/LiveMatchModel.dart';
 import '../services/LiveMatchService.dart';
@@ -39,7 +40,7 @@ class _LiveMatchScreenState extends State<LiveMatchScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Maclar'),
-        backgroundColor: const Color.fromARGB(255, 55, 19, 103),
+        backgroundColor: constant.mavi1,
       ),
       body: _matches.isEmpty
           ? const Center(

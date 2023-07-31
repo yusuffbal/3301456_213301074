@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import '../models/StandingModel.dart';
-import 'DbHelper.dart';
+
 
 class StandingService {
   final String apiKey = 'e11c9a34176f499bbd3ef7ef05458480';
@@ -29,8 +29,6 @@ class StandingService {
         );
       }));
 
-      final databaseHelper = DatabaseHelper.instance;
-      await databaseHelper.insertStandings(standings);
 
       return standings;
     } else {

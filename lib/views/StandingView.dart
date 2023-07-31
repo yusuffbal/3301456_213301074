@@ -1,16 +1,18 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
+import 'package:footballapp_2/constants/constant.dart';
 
 import '../models/StandingModel.dart';
-import '../services/DbHelper.dart';
 import '../services/StandingService.dart';
-
 
 class StandingView extends StatefulWidget {
   final String code;
 
-  const StandingView({required this.code});
+  const StandingView({super.key, required this.code});
 
   @override
+  // ignore: library_private_types_in_public_api
   _StandingViewState createState() => _StandingViewState();
 }
 
@@ -27,24 +29,16 @@ class _StandingViewState extends State<StandingView> {
 
   Future<void> fetchData() async {
     try {
-      final databaseHelper = DatabaseHelper.instance;
-      final standings = await databaseHelper.getStandings();
-
-      if (standings.isNotEmpty) {
-        setState(() {
-          _standings = standings;
-          _isLoading = false;
-        });
-      }
-
       final apiStandings = await _service.fetchStandings(widget.code);
+
       setState(() {
         _standings = apiStandings;
         _isLoading = false;
       });
 
-      await databaseHelper.insertStandings(apiStandings);
+      // You can insert standings into the database here if needed
     } catch (error) {
+      // ignore: avoid_print
       print('Sıralama verileri çekilemedi $error');
       setState(() {
         _isLoading = false;
@@ -58,7 +52,7 @@ class _StandingViewState extends State<StandingView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Puan Tablosu'),
-        backgroundColor: const Color.fromARGB(255, 55, 19, 103),
+        backgroundColor: constant.mavi1,
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())

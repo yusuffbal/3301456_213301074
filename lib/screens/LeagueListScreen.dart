@@ -1,4 +1,7 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
+import 'package:footballapp_2/constants/constant.dart';
 import '../widgets/BuildLeagueCard.dart';
 import '../views/StandingView.dart';
 
@@ -54,12 +57,10 @@ class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 55, 19, 103),
+        backgroundColor: constant.mavi1,
       ),
       body: Container(
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 55, 19, 103),
-        ),
+        color: constant.mavi4,
         child: GridView.count(
           crossAxisCount: 2,
           children: [

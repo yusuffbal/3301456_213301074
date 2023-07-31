@@ -31,7 +31,7 @@ Future<void> updateMatchCapacity(String matchAdi, int yeniKapasite) async {
         .doc(matchId)
         .set(data!);
   } else {
-    throw Exception('Belge bulunamadı!');
+    throw Exception('Aktif maç verisi bulunamadı!');
   }
 }
 

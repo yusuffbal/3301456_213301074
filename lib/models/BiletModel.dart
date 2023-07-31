@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 class BiletModel {
    String? id;
    String? ad;
