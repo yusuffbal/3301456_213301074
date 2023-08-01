@@ -1,5 +1,8 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:footballapp_2/Provider/BiletProvider.dart';
+import 'package:footballapp_2/constants/constant.dart';
 import 'package:provider/provider.dart';
 import '../models/BiletModel.dart';
 
@@ -56,10 +59,10 @@ class _BiletDetayViewState extends State<BiletDetayView> {
   Widget build(BuildContext context) {
     final Biletprovider = Provider.of<BiletProvider>(context);
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 58, 1, 133),
+      backgroundColor: constant.mavi1,
       appBar: AppBar(
         title: const Text('Bilet Detay'),
-        backgroundColor: const Color.fromARGB(255, 55, 19, 103),
+        backgroundColor: constant.mavi3,
       ),
       body: Padding(
         padding: const EdgeInsets.all(30),
@@ -106,7 +109,7 @@ class _BiletDetayViewState extends State<BiletDetayView> {
             Center(
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 126, 0, 252),
+                  backgroundColor: constant.mavi3,
                   padding: const EdgeInsets.symmetric(
                       horizontal: 50.0, vertical: 20.0),
                   shape: const StadiumBorder(),
@@ -148,7 +151,7 @@ class _BiletDetayViewState extends State<BiletDetayView> {
             Center(
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 126, 0, 252),
+                  backgroundColor: constant.mavi3,
                   padding: const EdgeInsets.symmetric(
                       horizontal: 50.0, vertical: 20.0),
                   shape: const StadiumBorder(),

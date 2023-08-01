@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +14,7 @@ class FlutterFireAuthService {
 
   Future<User?> createAccount(
       String name, String email, String password) async {
-    FirebaseFirestore _firestore = FirebaseFirestore.instance;
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
 
     try {
       User? user = (await _firebaseAuth.createUserWithEmailAndPassword(
@@ -22,7 +24,7 @@ class FlutterFireAuthService {
           .user;
 
       if (user != null) {
-        await _firestore.collection('users').doc(user.uid).set({
+        await firestore.collection('users').doc(user.uid).set({
           "user_id": user.uid,
           "user_name": name,
           "user_email": email,
@@ -70,6 +72,7 @@ class FlutterFireAuthService {
       await _firebaseAuth.signOut().then((value) {
         Navigator.push(context, MaterialPageRoute(builder: (_) => LoginPage()));
       });
+    // ignore: empty_catches
     } catch (e) {}
   }
 

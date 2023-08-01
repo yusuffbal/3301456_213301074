@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, avoid_function_literals_in_foreach_calls
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/MatchModel.dart';
 

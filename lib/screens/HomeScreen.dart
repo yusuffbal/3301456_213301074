@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:footballapp_2/screens/LeagueListScreen.dart';
@@ -10,6 +12,8 @@ import '../widgets/BuildCard.dart';
 
 class HomeScreen extends StatelessWidget {
   final FlutterFireAuthService _authService = FlutterFireAuthService(FirebaseAuth.instance);
+
+  HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

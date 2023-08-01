@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:footballapp_2/views/BiletDetayView.dart';
 import 'package:provider/provider.dart';
-
+import 'package:footballapp_2/constants/constant.dart';
 import '../models/BiletModel.dart';
 import '../services/BiletService.dart';
 
@@ -10,10 +10,10 @@ class BiletlerimSayfasi extends StatelessWidget {
   Widget build(BuildContext context) {
     final biletService = Provider.of<BiletService>(context);
     return Scaffold(
-      backgroundColor:const Color.fromARGB(255, 58, 1, 133),
+      backgroundColor: constant.mavi1,
       appBar: AppBar(
         title: Text('Biletlerim'),
-        backgroundColor: const Color.fromARGB(255, 55, 19, 103),
+        backgroundColor: constant.mavi3
       ),
       body: StreamBuilder<List<BiletModel>>(
         stream: biletService.getBiletler(),
