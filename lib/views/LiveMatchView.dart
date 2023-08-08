@@ -39,6 +39,7 @@ class _LiveMatchScreenState extends State<LiveMatchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: constant.mavi3,
       appBar: AppBar(
         title: const Text('Maclar'),
         backgroundColor: constant.mavi1,

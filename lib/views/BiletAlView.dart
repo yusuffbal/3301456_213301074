@@ -1,5 +1,6 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:footballapp_2/constants/constant.dart';
 import 'package:footballapp_2/views/BiletlerimView.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +13,7 @@ class BiletAlmaSayfasi extends StatefulWidget {
   const BiletAlmaSayfasi({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _BiletAlmaSayfasiState createState() => _BiletAlmaSayfasiState();
 }
 
