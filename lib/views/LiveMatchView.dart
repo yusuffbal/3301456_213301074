@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:footballapp_2/constants/constant.dart';
 
@@ -43,7 +45,7 @@ class _LiveMatchScreenState extends State<LiveMatchScreen> {
         backgroundColor: constant.mavi1,
       ),
       body: _matches.isEmpty
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : ListView.builder(
               itemCount: _matches.length,
               itemBuilder: (context, index) {

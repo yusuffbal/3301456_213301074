@@ -15,27 +15,6 @@ class MatchService {
     });
     return matchList;
   }
-Future<void> updateMatchCapacity(String matchAdi, int yeniKapasite) async {
-  QuerySnapshot querySnapshot = await FirebaseFirestore.instance
-      .collection('maclar')
-      .where('ad', isEqualTo: matchAdi)
-      .get();
-
-  if (querySnapshot.docs.isNotEmpty) {
-    DocumentSnapshot documentSnapshot = querySnapshot.docs.first;
-    String matchId = documentSnapshot.id;
-
-    Map<String, dynamic>? data = documentSnapshot.data() as Map<String, dynamic>?;
-    data?['kapasite'] = yeniKapasite;
-
-    await FirebaseFirestore.instance
-        .collection('maclar')
-        .doc(matchId)
-        .set(data!);
-  } else {
-    throw Exception('Aktif maç verisi bulunamadı!');
-  }
-}
-
 
 }
+

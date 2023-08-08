@@ -35,10 +35,12 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
   Future<void> loadMatches() async {
     MatchService matchService = MatchService();
     List<MatchModel> loadedMatches = await matchService.getMatches();
-    setState(() {
-      matches = loadedMatches;
-      selectedMatch = loadedMatches.isNotEmpty ? loadedMatches[0].ad : null;
-    });
+    if (mounted) {
+      setState(() {
+        matches = loadedMatches;
+        selectedMatch = loadedMatches.isNotEmpty ? loadedMatches[0].ad : null;
+      });
+    }
   }
 
   @override
