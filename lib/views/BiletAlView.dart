@@ -47,7 +47,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
     return Scaffold(
       backgroundColor: constant.mavi4,
       appBar: AppBar(
-        title: const Text('Bilet Alma Sayfası'),
+        title: const Text('Bilet Rezervasyon'),
         backgroundColor: constant.mavi1,
       ),
       body: SingleChildScrollView(
