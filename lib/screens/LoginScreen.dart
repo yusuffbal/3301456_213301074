@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
       body: Center(
         child: Container(
           width: MediaQuery.of(context).size.width * 0.9,
-          height: MediaQuery.of(context).size.width * 1.2,
+          height: MediaQuery.of(context).size.width * 1,
           padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
             color: constant.mavi3,
@@ -41,7 +41,7 @@ class LoginPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    const SizedBox(height: 16.0),
+                    const SizedBox(height: 14.0),
                     TextFormField(
                       controller: _emailController,
                       style: const TextStyle(
@@ -66,7 +66,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 5,
+                      height: 2,
                     ),
                     TextFormField(
                       controller: _passwordController,
@@ -93,7 +93,7 @@ class LoginPage extends StatelessWidget {
                       obscureText: true,
                     ),
                     const SizedBox(
-                      height: 30,
+                      height: 7,
                     ),
                     Center(
                       child: ElevatedButton(
@@ -118,7 +118,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 30,
+                      height: 5,
                     ),
                     Center(
                       child: ElevatedButton(
