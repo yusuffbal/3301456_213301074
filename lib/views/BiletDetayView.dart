@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:footballapp_2/Provider/BiletProvider.dart';
@@ -9,9 +9,10 @@ import '../models/BiletModel.dart';
 class BiletDetayView extends StatefulWidget {
   final BiletModel bilet;
 
-  const BiletDetayView({required this.bilet});
+  const BiletDetayView({super.key, required this.bilet});
 
   @override
+  // ignore: library_private_types_in_public_api
   _BiletDetayViewState createState() => _BiletDetayViewState();
 }
 

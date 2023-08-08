@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:footballapp_2/views/BiletDetayView.dart';
 import 'package:provider/provider.dart';
@@ -6,13 +8,15 @@ import '../models/BiletModel.dart';
 import '../services/BiletService.dart';
 
 class BiletlerimSayfasi extends StatelessWidget {
+  const BiletlerimSayfasi({super.key});
+
   @override
   Widget build(BuildContext context) {
     final biletService = Provider.of<BiletService>(context);
     return Scaffold(
       backgroundColor: constant.mavi1,
       appBar: AppBar(
-        title: Text('Biletlerim'),
+        title: const Text('Biletlerim'),
         backgroundColor: constant.mavi3
       ),
       body: StreamBuilder<List<BiletModel>>(
@@ -33,17 +37,17 @@ class BiletlerimSayfasi extends StatelessWidget {
                       context: context,
                       builder: (context) {
                         return AlertDialog(
-                          title: Text('Bilet Sil'),
-                          content: Text('Bu biletinizi silmek istediğinizden emin misiniz?'),
+                          title: const Text('Bilet Sil'),
+                          content: const Text('Bu biletinizi silmek istediğinizden emin misiniz?'),
                           actions: [
                             TextButton(
-                              child: Text('İptal'),
+                              child: const Text('İptal'),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
                             ),
                             TextButton(
-                              child: Text('Sil'),
+                              child: const Text('Sil'),
                               onPressed: () {
                                 if (bilet.id != null) {
                                   biletService.removeBilet(bilet.id!);
@@ -60,21 +64,21 @@ class BiletlerimSayfasi extends StatelessWidget {
               shape: RoundedRectangleBorder(
                borderRadius: BorderRadius.circular(35.0),
               ),
-              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+              margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
               elevation: 2.0,
               child: Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       '${bilet.match}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0,
                       ),
                     ),
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     Text('Ad: ${bilet.ad}'),
                     Text('Soyad: ${bilet.soyad}'),
                     Text('Mekan: ${bilet.stad}'),
@@ -88,9 +92,9 @@ class BiletlerimSayfasi extends StatelessWidget {
               },
             );
           } else if (snapshot.hasError) {
-            return Text('Biletler yüklenirken bir hata oluştu.');
+            return const Text('Biletler yüklenirken bir hata oluştu.');
           } else {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
         },
       ),

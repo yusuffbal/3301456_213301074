@@ -28,5 +28,5 @@ class MatchModel {
     );
   }
 
-  String? get id => null;
+
 }

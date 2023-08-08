@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:footballapp_2/constants/constant.dart';
 
@@ -7,7 +9,7 @@ import '../services/LiveMatchService.dart';
 class LiveMatchScreen extends StatefulWidget {
   final LiveMatchService service;
 
-  LiveMatchScreen({required this.service});
+  const LiveMatchScreen({super.key, required this.service});
 
   @override
   _LiveMatchScreenState createState() => _LiveMatchScreenState();
@@ -29,9 +31,8 @@ class _LiveMatchScreenState extends State<LiveMatchScreen> {
         _matches = matches;
       });
     } catch (error) {
+      // ignore: avoid_print
       print('Maç Verileri Çekilemedi $error');
-      // veya
-      // Hata iletisi gösterme veya diğer hata yönetimi adımlarını buraya ekleyin
     }
   }
 
@@ -43,11 +44,7 @@ class _LiveMatchScreenState extends State<LiveMatchScreen> {
         backgroundColor: constant.mavi1,
       ),
       body: _matches.isEmpty
-          ? const Center(
-              child: Text(
-              "Su anda herhangi bir maç yok!",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ))
+          ? const Center(child: CircularProgressIndicator())
           : ListView.builder(
               itemCount: _matches.length,
               itemBuilder: (context, index) {

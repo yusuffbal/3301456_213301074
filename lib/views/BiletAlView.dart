@@ -73,7 +73,6 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                     selectedMatch =
                         matches.firstWhere((match) => match.ad == newValue).ad;
                   });
-
                   biletProvider.changeMatch(selectedMatch!);
                   biletProvider.changeStad(selectedStad!);
                   biletProvider.changeTarih(selectedTarih!);
@@ -132,14 +131,14 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
-                  
                   biletProvider.saveBiletmodel();
                   showDialog(
                     context: context,
                     builder: (context) {
                       return AlertDialog(
                         title: const Text('Bilet Alındı'),
-                        content: const Text('Bilet rezervasyonunuz alınmıştır.'),
+                        content:
+                            const Text('Bilet rezervasyonunuz alınmıştır.'),
                         actions: [
                           TextButton(
                             child: const Text('Tamam'),
@@ -171,7 +170,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => BiletlerimSayfasi(),
+                      builder: (context) => const BiletlerimSayfasi(),
                     ),
                   );
                 },
