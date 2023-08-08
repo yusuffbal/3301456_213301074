@@ -27,6 +27,4 @@ class MatchModel {
       documentId: json['documentId'], 
     );
   }
-
-
 }
