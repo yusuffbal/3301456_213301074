@@ -36,14 +36,12 @@ class _StandingViewState extends State<StandingView> {
         _isLoading = false;
       });
 
-      // You can insert standings into the database here if needed
     } catch (error) {
       // ignore: avoid_print
       print('Sıralama verileri çekilemedi $error');
       setState(() {
         _isLoading = false;
       });
-      // Hata iletisi gösterme veya diğer hata yönetimi adımlarını buraya ekleyin
     }
   }
 
