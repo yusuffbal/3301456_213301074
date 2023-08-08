@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, use_build_context_synchronously
+// ignore_for_file: file_names, use_build_context_synchronously, avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -73,7 +73,9 @@ class FlutterFireAuthService {
         Navigator.push(context, MaterialPageRoute(builder: (_) => LoginPage()));
       });
     // ignore: empty_catches
-    } catch (e) {}
+    } catch (e) {
+      print(e);
+    }
   }
 
 }
