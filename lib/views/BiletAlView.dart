@@ -1,6 +1,5 @@
-// ignore_for_file: library_private_types_in_public_api, file_names
-
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:footballapp_2/constants/constant.dart';
 import 'package:footballapp_2/views/BiletlerimView.dart';
 import 'package:provider/provider.dart';
@@ -54,76 +53,131 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              DropdownButtonFormField<String>(
-                decoration: const InputDecoration(
-                  labelText: 'Maç Seçin',
-                  labelStyle: TextStyle(color: Colors.white),
+              Container(
+                decoration: BoxDecoration(
+                  color: constant.mavi1,
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                dropdownColor: constant.mavi4,
-                style: const TextStyle(color: Colors.white),
-                value: selectedMatch,
-                onChanged: (String? newValue) {
-                  setState(() {
-                    selectedStad = matches
-                        .firstWhere((match) => match.ad == newValue)
-                        .stad;
-                    selectedTarih = matches
-                        .firstWhere((match) => match.ad == newValue)
-                        .tarih;
-                    selectedMatch =
-                        matches.firstWhere((match) => match.ad == newValue).ad;
-                  });
-                  biletProvider.changeMatch(selectedMatch!);
-                  biletProvider.changeStad(selectedStad!);
-                  biletProvider.changeTarih(selectedTarih!);
-                },
-                items:
-                    matches.map<DropdownMenuItem<String>>((MatchModel match) {
-                  return DropdownMenuItem<String>(
-                    value: match.ad,
-                    child: Text(match.ad!),
-                  );
-                }).toList(),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: DropdownButtonFormField<String>(
+                  decoration: const InputDecoration(
+                    hintText: 'Maç Seçin',
+                    hintStyle: TextStyle(color: Colors.white),
+                    border: InputBorder.none,
+                  ),
+                  dropdownColor: constant.mavi4,
+                  style: const TextStyle(color: Colors.white),
+                  value: selectedMatch,
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      selectedStad =
+                          matches.firstWhere((match) => match.ad == newValue).stad;
+                      selectedTarih = matches
+                          .firstWhere((match) => match.ad == newValue)
+                          .tarih;
+                      selectedMatch =
+                          matches.firstWhere((match) => match.ad == newValue).ad;
+                    });
+                    biletProvider.changeMatch(selectedMatch!);
+                    biletProvider.changeStad(selectedStad!);
+                    biletProvider.changeTarih(selectedTarih!);
+                  },
+                  items: matches.map<DropdownMenuItem<String>>(
+                    (MatchModel match) {
+                      return DropdownMenuItem<String>(
+                        value: match.ad,
+                        child: Text(
+                          match.ad!,
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                      );
+                    },
+                  ).toList(),
+                ),
               ),
               const SizedBox(height: 30.0),
               TextFormField(
                 controller: adController,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                decoration: InputDecoration(
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: constant.mavi1),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: constant.mavi1,
+                    ),
+                  ),
+                  prefixIcon: const Icon(
+                    Icons.person,
+                    color: Colors.white,
+                  ),
+                  filled: true,
+                  fillColor: constant.mavi1,
+                  labelText: "Adınız",
+                  labelStyle: const TextStyle(color: Colors.white),
+                ),
                 onChanged: (value) {
                   biletProvider.changeAd(value);
                 },
-                decoration: const InputDecoration(
-                    labelText: 'Adınız',
-                    labelStyle: TextStyle(color: Colors.white)),
               ),
               const SizedBox(height: 30.0),
               TextFormField(
                 controller: soyadController,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                decoration: InputDecoration(
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: constant.mavi1),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: constant.mavi1,
+                    ),
+                  ),
+                  prefixIcon: const Icon(
+                    Icons.person,
+                    color: Colors.white,
+                  ),
+                  filled: true,
+                  fillColor: constant.mavi1,
+                  labelText: "Soyadınız",
+                  labelStyle: const TextStyle(color: Colors.white),
+                ),
                 onChanged: (value) {
                   biletProvider.changeSoyad(value);
                 },
-                decoration: const InputDecoration(
-                    labelText: 'Soyadınız',
-                    labelStyle: TextStyle(color: Colors.white)),
               ),
               const SizedBox(height: 30.0),
               TextFormField(
                 controller: mailController,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                decoration: InputDecoration(
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: constant.mavi1),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: constant.mavi1,
+                    ),
+                  ),
+                  prefixIcon: const Icon(
+                    Icons.mail,
+                    color: Colors.white,
+                  ),
+                  filled: true,
+                  fillColor: constant.mavi1,
+                  labelText: "E-Posta Adresiniz",
+                  labelStyle: const TextStyle(color: Colors.white),
+                ),
                 onChanged: (value) {
                   biletProvider.changeEmail(value);
                 },
-                decoration: const InputDecoration(
-                    labelText: 'E-posta Adresiniz',
-                    labelStyle: TextStyle(color: Colors.white)),
               ),
               const SizedBox(height: 30.0),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: constant.mavi1,
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 50.0, vertical: 20.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 20.0),
                   shape: const StadiumBorder(),
                 ),
                 child: const Text(
@@ -137,8 +191,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                     builder: (context) {
                       return AlertDialog(
                         title: const Text('Bilet Alındı'),
-                        content:
-                            const Text('Bilet rezervasyonunuz alınmıştır.'),
+                        content: const Text('Bilet rezervasyonunuz alınmıştır.'),
                         actions: [
                           TextButton(
                             child: const Text('Tamam'),
@@ -152,14 +205,11 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                   );
                 },
               ),
-              const SizedBox(
-                height: 30,
-              ),
+              const SizedBox(height: 30.0),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: constant.mavi1,
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 50.0, vertical: 20.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 20.0),
                   shape: const StadiumBorder(),
                 ),
                 child: const Text(
