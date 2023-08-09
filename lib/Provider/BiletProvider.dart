@@ -106,5 +106,4 @@ class BiletProvider with ChangeNotifier
   removeBilet(String biletId) {
     firestoreService.removeBilet(biletId);
   }
-
 }

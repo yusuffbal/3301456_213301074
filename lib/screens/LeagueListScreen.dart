@@ -1,5 +1,3 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 import 'package:footballapp_2/constants/constant.dart';
 import '../widgets/BuildLeagueCard.dart';
@@ -12,41 +10,7 @@ class LigList extends StatefulWidget {
   State<LigList> createState() => _LigListState();
 }
 
-class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-  late Animation<double> _animation;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 200),
-    );
-
-    _animation = Tween<double>(begin: 1.0, end: 0.9).animate(
-      CurvedAnimation(
-        parent: _animationController,
-        curve: Curves.easeInOut,
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
-
-  void _startAnimation() {
-    _animationController.forward(from: 0.0);
-  }
-
-  void _reverseAnimation() {
-    _animationController.reverse(from: 3.0);
-  }
-
+class _LigListState extends State<LigList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,8 +29,6 @@ class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
           crossAxisCount: 2,
           children: [
             GestureDetector(
-              onTapDown: (_) => _startAnimation(),
-              onTapCancel: () => _reverseAnimation(),
               onTap: () {
                 Navigator.push(
                   context,
@@ -74,20 +36,9 @@ class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
                       builder: (context) => const StandingView(code: 'PD')),
                 );
               },
-              child: AnimatedBuilder(
-                animation: _animationController,
-                builder: (context, child) {
-                  return Transform.scale(
-                    scale: _animation.value,
-                    child: child,
-                  );
-                },
-                child: buildleaguecard("assets/images/laliga.png"),
-              ),
+              child: buildleaguecard("assets/images/laliga.png"),
             ),
             GestureDetector(
-              onLongPressDown: (_) => _startAnimation(),
-              onLongPressCancel: () => _reverseAnimation(),
               onTap: () {
                 Navigator.push(
                   context,
@@ -95,20 +46,9 @@ class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
                       builder: (context) => const StandingView(code: 'PL')),
                 );
               },
-              child: AnimatedBuilder(
-                animation: _animationController,
-                builder: (context, child) {
-                  return Transform.scale(
-                    scale: _animation.value,
-                    child: child,
-                  );
-                },
-                child: buildleaguecard("assets/images/pl.png"),
-              ),
+              child: buildleaguecard("assets/images/pl.png"),
             ),
             GestureDetector(
-              onLongPressDown: (_) => _startAnimation(),
-              onLongPressCancel: () => _reverseAnimation(),
               onTap: () {
                 Navigator.push(
                   context,
@@ -116,20 +56,9 @@ class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
                       builder: (context) => const StandingView(code: 'SA')),
                 );
               },
-              child: AnimatedBuilder(
-                animation: _animationController,
-                builder: (context, child) {
-                  return Transform.scale(
-                    scale: _animation.value,
-                    child: child,
-                  );
-                },
-                child: buildleaguecard("assets/images/seria.png"),
-              ),
+              child: buildleaguecard("assets/images/seria.png"),
             ),
             GestureDetector(
-              onLongPressDown: (_) => _startAnimation(),
-              onLongPressCancel: () => _reverseAnimation(),
               onTap: () {
                 Navigator.push(
                   context,
@@ -137,20 +66,9 @@ class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
                       builder: (context) => const StandingView(code: 'FL1')),
                 );
               },
-              child: AnimatedBuilder(
-                animation: _animationController,
-                builder: (context, child) {
-                  return Transform.scale(
-                    scale: _animation.value,
-                    child: child,
-                  );
-                },
-                child: buildleaguecard("assets/images/lig1.png"),
-              ),
+              child: buildleaguecard("assets/images/lig1.png"),
             ),
             GestureDetector(
-              onLongPressDown: (_) => _startAnimation(),
-              onLongPressCancel: () => _reverseAnimation(),
               onTap: () {
                 Navigator.push(
                   context,
@@ -158,20 +76,9 @@ class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
                       builder: (context) => const StandingView(code: 'BL1')),
                 );
               },
-              child: AnimatedBuilder(
-                animation: _animationController,
-                builder: (context, child) {
-                  return Transform.scale(
-                    scale: _animation.value,
-                    child: child,
-                  );
-                },
-                child: buildleaguecard("assets/images/bundesliga.png"),
-              ),
+              child: buildleaguecard("assets/images/bundesliga.png"),
             ),
             GestureDetector(
-              onLongPressDown: (_) => _startAnimation(),
-              onLongPressCancel: () => _reverseAnimation(),
               onTap: () {
                 Navigator.push(
                   context,
@@ -179,16 +86,7 @@ class _LigListState extends State<LigList> with SingleTickerProviderStateMixin {
                       builder: (context) => const StandingView(code: 'DED')),
                 );
               },
-              child: AnimatedBuilder(
-                animation: _animationController,
-                builder: (context, child) {
-                  return Transform.scale(
-                    scale: _animation.value,
-                    child: child,
-                  );
-                },
-                child: buildleaguecard("assets/images/erdivise.png"),
-              ),
+              child: buildleaguecard("assets/images/erdivise.png"),
             ),
           ],
         ),

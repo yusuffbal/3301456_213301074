@@ -14,7 +14,6 @@ class BiletService with ChangeNotifier {
     .collection('biletler')
     .doc(bilet.id)
     .set(bilet.toMap());
-    
   }
 
   Stream<List<BiletModel>> getBiletler()
