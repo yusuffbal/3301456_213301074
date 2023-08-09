@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
               ),
               buildGridItem(
                 context,
-                "Bilet Al",
+                "Rezervasyon Yap",
                 "assets/images/bilet.png",
                 const BiletAlmaSayfasi(),
               ),

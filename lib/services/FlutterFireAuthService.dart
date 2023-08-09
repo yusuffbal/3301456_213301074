@@ -17,12 +17,14 @@ class FlutterFireAuthService {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
 
     try {
+      // Uye olusturma fonksiyonu
       User? user = (await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       ))
           .user;
-
+      
+      // Eger kullanici olustuysa girilen verilerin firestore database e aktarilmasi icin yazilan if blogu
       if (user != null) {
         await firestore.collection('users').doc(user.uid).set({
           "user_id": user.uid,
@@ -36,11 +38,12 @@ class FlutterFireAuthService {
         return user;
       }
     } catch (e) {
-      return null;
+      throw Exception(e);
     }
   }
 
   Future<User?> logIn(
+    //Firebase Auth Login Metodu
       String email, String password, BuildContext context) async {
     try {
       User? user = (await _firebaseAuth.signInWithEmailAndPassword(
@@ -50,6 +53,7 @@ class FlutterFireAuthService {
           .user;
 
       if (user != null) {
+        //Eger kullanici verileri dogru eslesiyorsa anasayfaya fonksiyon cagirildigi yerde kullaniciyi anasayfaya yonlendirmesi icin yazilan if blogu.
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -63,18 +67,19 @@ class FlutterFireAuthService {
         return user;
       }
     } catch (e) {
-      return null;
+      throw Exception(e);
     }
   }
 
   Future<void> logOut(BuildContext context) async {
+    //Cikis yapma butonu icin hazirlanan Logout metodu
     try {
       await _firebaseAuth.signOut().then((value) {
         Navigator.push(context, MaterialPageRoute(builder: (_) => LoginPage()));
       });
     // ignore: empty_catches
     } catch (e) {
-      print(e);
+      throw Exception(e);
     }
   }
 

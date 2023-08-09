@@ -13,10 +13,12 @@ class LiveMatchService {
     final url = Uri.parse('http://api.football-data.org/v4/matches');
     final response = await http.get(url, headers: {'X-Auth-Token': apiKey});
 
+    // Gunun maclarinin verilerine ulasmak icin adrese http istegi atilir.
+
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       final matchesData = data['matches'];
-      print(response.body);
+
 
       final matches = List<LiveMatchModel>.from(matchesData.map((match) {
         return LiveMatchModel(

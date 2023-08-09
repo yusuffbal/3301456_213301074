@@ -31,7 +31,8 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
     super.initState();
     loadMatches();
   }
-
+  
+  // mac verilerini yuklemek icin olusturulan asenkron metod.
   Future<void> loadMatches() async {
     MatchService matchService = MatchService();
     List<MatchModel> loadedMatches = await matchService.getMatches();
@@ -69,7 +70,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                     hintStyle: TextStyle(color: Colors.white),
                     border: InputBorder.none,
                   ),
-                  dropdownColor: constant.mavi4,
+                  dropdownColor: constant.mavi1,
                   style: const TextStyle(color: Colors.white),
                   value: selectedMatch,
                   onChanged: (String? newValue) {
@@ -185,7 +186,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                   shape: const StadiumBorder(),
                 ),
                 child: const Text(
-                  'Bilet Al',
+                  'Rezervasyon Yap',
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
@@ -194,7 +195,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                     context: context,
                     builder: (context) {
                       return AlertDialog(
-                        title: const Text('Bilet Alındı'),
+                        title: const Text('Rezervasyon Başarılı'),
                         content: const Text('Bilet rezervasyonunuz alınmıştır.'),
                         actions: [
                           TextButton(
@@ -217,7 +218,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                   shape: const StadiumBorder(),
                 ),
                 child: const Text(
-                  'Biletlerim',
+                  'Rezervasyonlarım',
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
