@@ -77,8 +77,9 @@ class FlutterFireAuthService {
       await _firebaseAuth.signOut().then((value) {
         Navigator.push(context, MaterialPageRoute(builder: (_) => LoginPage()));
       });
-    // ignore: empty_catches
-    } catch (e) {
+    } 
+    catch (e) 
+    {
       throw Exception(e);
     }
   }

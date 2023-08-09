@@ -1,5 +1,7 @@
 // ignore_for_file: file_names
 
+// Firestore Database icerisinde el ile girilen maclarin verilerine erisebilmek icin olusturulan model classi.
+
 class MatchModel {
   String? ad;
   String? koltuk;
@@ -8,6 +10,7 @@ class MatchModel {
   String? tarih;
   String? documentId;
 
+//constructor
   MatchModel({
     this.ad,
     this.koltuk,
@@ -17,6 +20,7 @@ class MatchModel {
     this.documentId,
   });
 
+  // Firestore Database icerisinden json formatinda gelen veriyi MatchModel nesnesine donusturmek icin olusturulan metod.
   factory MatchModel.fromJson(Map<String, dynamic> json) {
     return MatchModel(
       ad: json['ad'],

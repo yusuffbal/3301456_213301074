@@ -139,6 +139,7 @@ class SignUpScreen extends StatelessWidget {
                           context
                               .read<FlutterFireAuthService>()
                               .createAccount(name, email, password);
+                              // Textfieldlara girilen datalari bosluksuz sekilde alir ve Auth CreateAccount fonksiyonuna iletir.
                         },
                        child: const Text(
                           "Kayıt Ol",

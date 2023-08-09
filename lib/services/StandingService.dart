@@ -12,10 +12,12 @@ class StandingService {
   Future<List<StandingModel>> fetchStandings(String code) async {
     final url = Uri.parse('http://api.football-data.org/v4/competitions/$code/standings');
     final response = await http.get(url, headers: {'X-Auth-Token': apiKey});
+    //gelen cevap response degiskenine atanir.
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       final standingsData = data['standings'][0]['table'];
+      //eger istek basarili olduysa gelen veriler standingsdata degiskenine aktarilir.
 
       final standings = List<StandingModel>.from(standingsData.map((standing) {
         return StandingModel(
@@ -28,6 +30,7 @@ class StandingService {
           draw: standing['draw'],
           lost: standing['lost'],
           goalDifference: standing['goalDifference'],
+          //standingsdata degiskenine aktarilan datalar StandingModel classinda olusturulan veri modeline aktarilir ve o siniftan bir nesne dondurulur.
         );
       }));
 

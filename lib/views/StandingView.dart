@@ -30,6 +30,9 @@ class _StandingViewState extends State<StandingView> {
   Future<void> fetchData() async {
     try {
       final apiStandings = await _service.fetchStandings(widget.code);
+      //constructordaki code degiskeni sayesinde kullanici istedigi sayfanin verilerine erisebilmesi icin fonksiyon bu sekilde olusturulmustur.
+      //http istegi StandingService dosyasinin icindedir.
+      //bu sayfada http isteginden sonra donen veriler iceri aktarilir.
 
       setState(() {
         _standings = apiStandings;

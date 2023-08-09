@@ -14,6 +14,7 @@ class BiletService with ChangeNotifier {
     .collection('biletler')
     .doc(bilet.id)
     .set(bilet.toMap());
+    // Firestore Database'e ekleme islemini gerceklestirmek icin gereken fonksiyondur.
   }
 
   Stream<List<BiletModel>> getBiletler()
@@ -23,13 +24,17 @@ class BiletService with ChangeNotifier {
     .docs
     .map((document)=>BiletModel.fromFireStore(document.data()))
     .toList());
+
+    // Firestore Database icerisinden rezervasyonlari listelemek icin gereken fonksiyondur.
   }
 
   Future<void> removeBilet(String id)
   {
     return firestore.collection('biletler').doc(id).delete();
+    // Firestore database icerisindeki rezervasyonu silmek icin gereken fonksiyondur.
   }
  Future<void> updateReservation(BiletModel biletModel) {
   return firestore.collection('biletler').doc(biletModel.id).set(biletModel.toMap());
+  // Firestore database icerisindeki rezervasyonun verilerini guncellemek icin gereken fonksiyondur.
  }
 }

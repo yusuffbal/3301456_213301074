@@ -5,11 +5,13 @@ import 'package:footballapp_2/models/BiletModel.dart';
 import 'package:uuid/uuid.dart';
 
 import '../services/BiletService.dart';
+// State Management'in yapildigi classtir. Provider kutuphanesi kullanilmistir.
 
 class BiletProvider with ChangeNotifier
 {
   final firestoreService = BiletService();
 
+  // Class icerisinde kullanilacak degiskenler.
   String? _id;
   String? _ad;
   String? _soyad;
@@ -18,8 +20,9 @@ class BiletProvider with ChangeNotifier
   String? _stad;
   String? _tarih;   
   int? _kapasite;
-  var uuid = const Uuid();
+  var uuid = const Uuid(); // UUID paketi ile benzersiz idler uretir.
 
+  // Değişkenlere erişim için gereken getter metodlari
   String? get id => _id;
   String? get ad => _ad;
   String? get soyad => _soyad;
@@ -62,11 +65,12 @@ class BiletProvider with ChangeNotifier
     notifyListeners();
   }
 
-   void changeKapasite(int value) { // Yeni eklenen setter
+   void changeKapasite(int value) { 
     _kapasite = value;
     notifyListeners();
   }
 
+  //Firestore database'deki verileri yuklemek icin yazildi.
   LoadValues(BiletModel biletmodel)
   {
     _id=biletmodel.id;
@@ -78,7 +82,9 @@ class BiletProvider with ChangeNotifier
     _tarih=biletmodel.tarih;
   }
 
+  //  Yeni bir bilet olusturmak icin veya var olan bir bileti guncellemek icin olusturulan metod.
  saveBiletmodel() {
+  // Eger halihazirda olusturulan id degeri uzerinde bir bilet tanimli degilse yeni bilet olusturmak icin kullanilan if blogu.
   if (_id == null) {
     var newBiletmodel = BiletModel(
       id: uuid.v4(),
@@ -90,7 +96,9 @@ class BiletProvider with ChangeNotifier
       tarih: tarih,
     );
     firestoreService.saveReservation(newBiletmodel);
-  } else {
+  } 
+  // Eger bir id uzerindeki biletin uzerine yazmaya yani guncelleme calisiliyorsa kullanilmasi icin olusturulan else blogu.
+  else {
     var updateBiletmodel = BiletModel(
       id: id,
       ad: ad,
@@ -103,6 +111,8 @@ class BiletProvider with ChangeNotifier
     firestoreService.updateReservation(updateBiletmodel); // Güncelleme işlemi için yeni bir metod çağırılıyor
   }
 }
+
+// Bilet silmek icin kullanilan metod.
   removeBilet(String biletId) {
     firestoreService.removeBilet(biletId);
   }

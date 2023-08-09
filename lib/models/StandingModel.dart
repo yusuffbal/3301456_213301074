@@ -1,5 +1,7 @@
 // ignore_for_file: file_names
 
+// Liglerin siralama verilerine erisim icin olusturulmus model class'i
+
 class StandingModel {
   final int? id;
   final int position;
@@ -11,6 +13,7 @@ class StandingModel {
   final int lost;
   final int goalDifference;
 
+  //Constructor
   StandingModel({
     this.id,
     required this.position,
@@ -23,6 +26,7 @@ class StandingModel {
     required this.goalDifference,
   });
 
+  // Gelen verileri bir mape donusturmek icin olusturulmus metod.
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -37,6 +41,7 @@ class StandingModel {
     };
   }
 
+  // Map halinde gelen verileri StandingModel nesnesine donusturme metodu.
   static StandingModel fromMap(Map<String, dynamic> map) {
     return StandingModel(
       id: map['id'],

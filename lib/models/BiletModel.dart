@@ -1,5 +1,7 @@
 // ignore_for_file: file_names
 
+// Olusturulacak ya da olusturulan biletlerin verisini kontrol edip erismek icin olusturulan model classi
+
 class BiletModel {
    String? id;
    String? ad;
@@ -9,7 +11,7 @@ class BiletModel {
    String? stad;
    String? tarih;
 
-
+  //constructor
   BiletModel({
      this.id,
      this.ad,
@@ -20,6 +22,7 @@ class BiletModel {
      this.tarih,
   });
 
+  // BiletModel nesnesindeki verileri mape donusturmek icin yapilan metod.
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -33,7 +36,7 @@ class BiletModel {
   }
 
   
-
+  //FireStore database icerisindeki verilerini BiletModel nesnesine donusturen metod.
   BiletModel.fromFireStore(Map<String, dynamic> firestore)
   : id=firestore['id'],
     ad=firestore['ad'],
@@ -42,8 +45,4 @@ class BiletModel {
     stad=firestore['stad'],
     match=firestore['match'],
     tarih=firestore['tarih'];
-    
-    
-
-
 }

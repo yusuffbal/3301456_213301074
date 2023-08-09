@@ -110,6 +110,7 @@ class LoginPage extends StatelessWidget {
                           context
                               .read<FlutterFireAuthService>()
                               .logIn(email, password, context);
+                              // Textfieldlara girilen datalari bosluksuz sekilde alir ve Auth metoduna yonlendirir.
                         },
                         child: const Text(
                           "Giriş Yap",

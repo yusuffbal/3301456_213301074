@@ -19,6 +19,7 @@ class LiveMatchService {
       final data = json.decode(response.body);
       final matchesData = data['matches'];
 
+      // Http istegi basariliysa apiden gelen json verileri matchesdata degiskenine atar.
 
       final matches = List<LiveMatchModel>.from(matchesData.map((match) {
         return LiveMatchModel(
@@ -27,8 +28,10 @@ class LiveMatchService {
           score: '${match['score']['fullTime']['homeTeam']} - ${match['score']['fullTime']['awayTeam']}',
         );
       }));
-
       return matches;
+
+            // matchesData icerisindeki verileri matchmodel sinifindan olusturulan bir nesneye atar ve onu dondurur.
+
     } else {
       throw Exception('Günün Maçlarının Verileri Çekilemedi!');
     }
