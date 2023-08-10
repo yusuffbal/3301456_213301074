@@ -20,6 +20,7 @@ class MatchModel {
     this.documentId,
   });
 
+
   // Firestore Database icerisinden json formatinda gelen veriyi MatchModel nesnesine donusturmek icin olusturulan metod.
   factory MatchModel.fromJson(Map<String, dynamic> json) {
     return MatchModel(
