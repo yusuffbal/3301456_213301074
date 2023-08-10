@@ -2,6 +2,9 @@
 
 import 'package:hexcolor/hexcolor.dart';
 
+// Uygulamanin renklerini sabit bir sekilde icerisinde tutan class
+// HexColor paketi kullanilmistir.
+
 class constant
 {
    static HexColor mavi1 = HexColor("#003153");

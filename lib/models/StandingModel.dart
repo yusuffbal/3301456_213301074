@@ -25,34 +25,4 @@ class StandingModel {
     required this.lost,
     required this.goalDifference,
   });
-
-  // Gelen verileri bir mape donusturmek icin olusturulmus metod.
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'position': position,
-      'teamName': teamName,
-      'playedGames': playedGames,
-      'points': points,
-      'won': won,
-      'draw': draw,
-      'lost': lost,
-      'goalDifference': goalDifference,
-    };
-  }
-
-  // Map halinde gelen verileri StandingModel nesnesine donusturme metodu.
-  static StandingModel fromMap(Map<String, dynamic> map) {
-    return StandingModel(
-      id: map['id'],
-      position: map['position'],
-      teamName: map['teamName'],
-      playedGames: map['playedGames'],
-      points: map['points'],
-      won: map['won'],
-      draw: map['draw'],
-      lost: map['lost'],
-      goalDifference: map['goalDifference'],
-    );
-  }
 }

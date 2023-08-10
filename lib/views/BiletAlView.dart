@@ -36,6 +36,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
   Future<void> loadMatches() async {
     MatchService matchService = MatchService();
     List<MatchModel> loadedMatches = await matchService.getMatches();
+    // mounted widgetin agac yapisinda olup olmadigini kontrol eder
     if (mounted) {
       setState(() {
         matches = loadedMatches;
@@ -190,6 +191,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
+                  //BiletProvider kutuphanesindeki kaydetme fonksiyonuyla rezervasyon alinir
                   biletProvider.saveBiletmodel();
                   showDialog(
                     context: context,
