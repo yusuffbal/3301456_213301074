@@ -103,6 +103,8 @@ class LoginPage extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 50.0, vertical: 20.0),
                           shape: const StadiumBorder(),
+                          maximumSize: const Size(200, 60)
+                          
                         ),
                         onPressed: () {
                           String email = _emailController.text.trim();
@@ -129,6 +131,7 @@ class LoginPage extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 50.0, vertical: 20.0),
                           shape: const StadiumBorder(),
+                          maximumSize: const Size(200, 60)
                         ),
                         onPressed: () {
                           Navigator.push(

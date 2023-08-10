@@ -25,4 +25,5 @@ class StandingModel {
     required this.lost,
     required this.goalDifference,
   });
+
 }

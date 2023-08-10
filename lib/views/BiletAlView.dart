@@ -185,6 +185,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                   backgroundColor: constant.mavi1,
                   padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 20.0),
                   shape: const StadiumBorder(),
+                  minimumSize: const Size(100, 50)
                 ),
                 child: const Text(
                   'Rezervasyon Yap',
@@ -218,6 +219,7 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
                   backgroundColor: constant.mavi1,
                   padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 20.0),
                   shape: const StadiumBorder(),
+                  minimumSize: const Size(100, 50)
                 ),
                 child: const Text(
                   'Rezervasyonlarım',

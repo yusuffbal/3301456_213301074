@@ -166,6 +166,7 @@ class _BiletDetayViewState extends State<BiletDetayView> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 50.0, vertical: 20.0),
                         shape: const StadiumBorder(),
+                        fixedSize: const Size(250, 60),
                       ),
                       onPressed: () {
                         showDialog(
@@ -212,6 +213,7 @@ class _BiletDetayViewState extends State<BiletDetayView> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 50.0, vertical: 20.0),
                         shape: const StadiumBorder(),
+                        fixedSize: const Size(250, 60),
                       ),
                       onPressed: () {
                         showDialog(context: context,  builder: (context)
