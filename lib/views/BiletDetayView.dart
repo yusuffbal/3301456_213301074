@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:footballapp_2/Provider/BiletProvider.dart';
 import 'package:footballapp_2/constants/constant.dart';
+import 'package:footballapp_2/views/BiletAlView.dart';
 import 'package:provider/provider.dart';
 import '../models/BiletModel.dart';
 
@@ -66,12 +67,12 @@ class _BiletDetayViewState extends State<BiletDetayView> {
         backgroundColor: constant.mavi3,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(30),
+        padding: const EdgeInsets.all(13),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Maç: ${widget.bilet.match} - Stad: ${widget.bilet.stad} - Tarih: ${widget.bilet.tarih}',
+              ' Maç: ${widget.bilet.match} \n Stad: ${widget.bilet.stad} \n Tarih: ${widget.bilet.tarih}',
               style: const TextStyle(fontSize: 18, color: Colors.white),
             ),
             TextFormField(
@@ -138,6 +139,12 @@ class _BiletDetayViewState extends State<BiletDetayView> {
                                 onPressed: () {
                                   Biletprovider.removeBilet(widget.bilet.id!);
                                   Navigator.of(context).pop();
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const BiletAlmaSayfasi()),
+                                  );
                                 },
                               ),
                             ],
