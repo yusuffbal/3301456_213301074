@@ -14,10 +14,10 @@ class BiletlerimSayfasi extends StatelessWidget {
   Widget build(BuildContext context) {
     final biletService = Provider.of<BiletService>(context);
     return Scaffold(
-      backgroundColor: constant.mavi1,
+      backgroundColor: constant.mavi3,
       appBar: AppBar(
-        title: const Text('Biletlerim'),
-        backgroundColor: constant.mavi3
+        title: const Text('Rezervasyonlarım'),
+        backgroundColor: constant.mavi1
       ),
       body: StreamBuilder<List<BiletModel>>(
         stream: biletService.getBiletler(),
@@ -37,8 +37,8 @@ class BiletlerimSayfasi extends StatelessWidget {
                       context: context,
                       builder: (context) {
                         return AlertDialog(
-                          title: const Text('Bilet Sil'),
-                          content: const Text('Bu biletinizi silmek istediğinizden emin misiniz?'),
+                          title: const Text('Rezervasyonu Sil'),
+                          content: const Text('Bu rezervasyonu silmek istediğinizden emin misiniz?'),
                           actions: [
                             TextButton(
                               child: const Text('İptal'),
