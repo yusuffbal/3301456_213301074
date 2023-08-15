@@ -16,15 +16,6 @@ class _LigListState extends State<LigList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Ligler",
-          textAlign: TextAlign.center,
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-        backgroundColor: constant.mavi1,
-      ),
       body: Container(
         color: constant.mavi4,
         child: GridView.count(

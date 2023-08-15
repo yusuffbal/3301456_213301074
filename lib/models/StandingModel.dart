@@ -12,6 +12,7 @@ class StandingModel {
   final int draw;
   final int lost;
   final int goalDifference;
+  final String crest;
 
   //Constructor
   StandingModel({
@@ -24,6 +25,7 @@ class StandingModel {
     required this.draw,
     required this.lost,
     required this.goalDifference,
+    required this.crest,
   });
 
 }

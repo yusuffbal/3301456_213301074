@@ -1,10 +1,7 @@
-// ignore_for_file: avoid_print, file_names
-
-import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-
 import '../models/LiveMatchModel.dart';
+import 'package:http/http.dart' as http;
 
 class LiveMatchService {
   final String apiKey = 'e11c9a34176f499bbd3ef7ef05458480';
@@ -13,25 +10,32 @@ class LiveMatchService {
     final url = Uri.parse('http://api.football-data.org/v4/matches');
     final response = await http.get(url, headers: {'X-Auth-Token': apiKey});
 
-    // Gunun maclarinin verilerine ulasmak icin adrese http istegi atilir.
-
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       final matchesData = data['matches'];
 
-      // Http istegi basariliysa apiden gelen json verileri matchesdata degiskenine atar.
-
       final matches = List<LiveMatchModel>.from(matchesData.map((match) {
+        final homeTeamName = match['homeTeam']['name'];
+        final awayTeamName = match['awayTeam']['name'];
+
+        final homeTeamCrest = match['homeTeam']['crest'] ?? ''; 
+        final awayTeamCrest = match['awayTeam']['crest'] ?? ''; 
+      
+        final homeScoreData = match['score']['fullTime']['homeTeam'];
+        final awayScoreData = match['score']['fullTime']['awayTeam'];
+
+        final homeScore = homeScoreData != null ? homeScoreData.toString() : '0';
+        final awayScore = awayScoreData != null ? awayScoreData.toString() : '0';
+
         return LiveMatchModel(
-          homeTeam: match['homeTeam']['name'],
-          awayTeam: match['awayTeam']['name'],
-          score: '${match['score']['fullTime']['homeTeam']} - ${match['score']['fullTime']['awayTeam']}',
+          homeTeam: homeTeamName,
+          awayTeam: awayTeamName,
+          score: '$homeScore - $awayScore', 
+          homeCrest: homeTeamCrest, 
+          awayCrest: awayTeamCrest,
         );
       }));
       return matches;
-
-            // matchesData icerisindeki verileri matchmodel sinifindan olusturulan bir nesneye atar ve onu dondurur.
-
     } else {
       throw Exception('Günün Maçlarının Verileri Çekilemedi!');
     }

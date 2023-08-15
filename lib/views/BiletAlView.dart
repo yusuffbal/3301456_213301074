@@ -50,10 +50,6 @@ class _BiletAlmaSayfasiState extends State<BiletAlmaSayfasi> {
     final biletProvider = Provider.of<BiletProvider>(context);
     return Scaffold(
       backgroundColor: constant.mavi4,
-      appBar: AppBar(
-        title: const Text('Bilet Rezervasyon'),
-        backgroundColor: constant.mavi1,
-      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),

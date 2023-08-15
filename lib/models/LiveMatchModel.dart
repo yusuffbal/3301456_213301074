@@ -1,16 +1,15 @@
-// ignore_for_file: file_names
-
-// Gunun maclarinin verilerine erismek icin olusturulan class.
-
 class LiveMatchModel {
   final String homeTeam;
   final String awayTeam;
   final String score;
+  final String homeCrest;
+  final String awayCrest;
 
-  //constructor.
   LiveMatchModel({
     required this.homeTeam,
     required this.awayTeam,
     required this.score,
+    required this.homeCrest, // homeCrest parametresini zorunlu hale getirdik
+    required this.awayCrest, // awayCrest parametresini zorunlu hale getirdik
   });
 }

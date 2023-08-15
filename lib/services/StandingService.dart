@@ -29,7 +29,8 @@ class StandingService {
           won: standing['won'],
           draw: standing['draw'],
           lost: standing['lost'],
-          goalDifference: standing['goalDifference'],
+          goalDifference: standing['goalDifference'], 
+          crest: standing['team']['crest'],
           //standingsdata degiskenine aktarilan datalar StandingModel classinda olusturulan veri modeline aktarilir ve o siniftan bir nesne dondurulur.
         );
       }));
